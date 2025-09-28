@@ -1,0 +1,119 @@
+.hero {
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 50%;
+  aspect-ratio: 1 / 1;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.row {
+  position: relative;
+  width: 100vw;
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+  z-index: 1;
+}
+
+.card {
+  position: relative;
+  width: 40%;
+  height: 360px;
+  border-radius: 0.75em;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.mainContent {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cardsContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.line {
+  position: relative;
+  margin: 0.5em 0;
+  height: 32px;
+  overflow: hidden;
+}
+
+.line p {
+  position: relative;
+  font-size: 24px;
+  transform: translateY(100%);
+}
+
+.btn {
+  margin-top: 1em;
+}
+
+.btn button {
+  position: relative;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #fff;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 8em;
+  cursor: pointer;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 45%;
+    height: 240px;
+  }
+  .line p {
+    font-size: 20px;
+  }
+}
+

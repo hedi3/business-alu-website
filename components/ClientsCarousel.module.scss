@@ -1,0 +1,69 @@
+.clientsSection {
+    background-color: #f4f7f6;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 60px;
+    padding: 0 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e51a2;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .scroller {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Masque dégradé pour un effet de fondu sur les côtés */
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+  
+  .scrollerInner {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    /* Animation du défilement */
+    animation: scroll 30s linear infinite;
+  }
+  
+  /* NOUVEAU : Ajout de la pause au survol de la souris */
+  .scroller:hover .scrollerInner {
+    animation-play-state: paused;
+  }
+  
+  .logoItem {
+    height: 60px; /* Hauteur fixe pour un alignement parfait */
+    display: flex;
+    align-items: center;
+    filter: grayscale(100%); /* Logos en noir et blanc */
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  
+    &:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.1); /* Effet d'agrandissement au survol */
+    }
+  }
+  
+  /* Définition de l'animation de défilement */
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-50% - 30px)); /* -50% pour la moitié de la largeur, -30px pour la moitié du gap */
+    }
+  }
+ 
+  

@@ -1,0 +1,97 @@
+/* --- Configuration et Structure de Base --- */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideBands {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.band {
+  position: absolute;
+  top: 0; height: 100%;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1),
+              opacity 0.6s ease;
+}
+
+.slideContent {
+  position: absolute;
+  bottom: 20%; left: 10%;
+  z-index: 2;
+  width: 60%; max-width: 800px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- LOGIQUE D'ANIMATION EN DEUX TEMPS --- */
+
+/* 1. ANIMATION DE SORTIE */
+.slider.next .slideContent,
+.slider.prev .slideContent {
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: 0s;
+}
+
+.slider.next .band {
+  transform: translateX(-100%);
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.08}s;
+    }
+  }
+}
+
+.slider.prev .band {
+  transform: translateX(100%);
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.08}s;
+    }
+  }
+}
+
+/* 2. ANIMATION D'ENTRÉE (implicite) */
+/* Quand le contenu du slide change, le texte et l'image reviennent à leur état initial 
+   (opacity: 1, transform: translateX(0)) grâce à la transition définie plus haut,
+   ce qui crée l'effet d'entrée. */
+
+/* --- Vos styles de contenu et d'UI (inchangés) --- */
+.slideContent {
+  h2 {
+    font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; color: #1e51a2; text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
+    @media (max-width: 768px) { font-size: 2.5rem; margin-bottom: 1rem; }
+  }
+  p {
+    font-size: 1.8rem; line-height: 1.6; max-width: 600px; background: rgba(30, 81, 162, 0.8); padding: 1rem 1.5rem; border-radius: 8px; backdrop-filter: blur(4px);
+    @media (max-width: 768px) { font-size: 1.2rem; padding: 0.75rem 1rem; }
+  }
+  @media (max-width: 768px) { bottom: 10%; width: 80%; left: 5%; }
+}
+.slideCounter { position: absolute; top: 20px; right: 20px; color: white; font-size: 1.2rem; font-weight: 500; background: rgba(30, 81, 162, 0.8); padding: 8px 16px; border-radius: 20px; z-index: 10; }
+.navButton { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(30, 81, 162, 0.8); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; transition: all 0.3s ease; z-index: 10;
+  &:hover:not(:disabled) { background: rgba(30, 81, 162, 1); transform: translateY(-50%) scale(1.1); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &.prev { left: 20px; }
+  &.next { right: 20px; }
+}
+.dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.3s ease;
+  &.active { background: #1e51a2; transform: scale(1.2); }
+  &:hover:not(:disabled) { background: rgba(30, 81, 162, 0.8); }
+  &:disabled { cursor: not-allowed; }
+}

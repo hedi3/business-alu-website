@@ -1,0 +1,127 @@
+.aboutContainer {
+    background-color: #ffffff;
+    color: #111;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* --- Section Hero --- */
+  .heroSection {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .heroImage {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(12, 26, 62, 0.6); // Superposition de couleur foncée
+    }
+  }
+  
+  .heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  
+  .heroTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  /* --- Section Histoire --- */
+  .storySection {
+    padding: 100px 5%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e51a2;
+      margin-bottom: 40px;
+    }
+  
+    .storyContent {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      
+      p {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  
+  /* --- Section Valeurs --- */
+  .valuesSection {
+    background-color: #f4f7f6;
+    padding: 100px 5%;
+  }
+  
+  .valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .valueCard {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+  }
+  
+  .valueIcon {
+    color: #1e51a2;
+    margin-bottom: 20px;
+  }
+  
+  .valueCard h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .valueCard p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+  }
+  
