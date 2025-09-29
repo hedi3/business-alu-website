@@ -5,7 +5,7 @@ import styles from './ClientsCarousel.module.scss';
 // Ajoutez ici les chemins vers les logos de vos clients/partenaires.
 // Pour un meilleur rendu, utilisez des logos PNG avec fond transparent.
 const clientLogos = [
-  { src: '/images/logo_a.png', alt: 'Client 1' },
+  { src: '/images/logo1.png', alt: 'Client 1' },
   { src: '/images/logo_b.png', alt: 'Client 2' },
   { src: '/images/logo_a.png', alt: 'Client 3' },
   { src: '/images/logo_a3.png', alt: 'Client 4' },

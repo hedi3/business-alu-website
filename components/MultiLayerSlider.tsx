@@ -1,62 +1,145 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import styles from "./MultiLayerSlider.module.scss";
 
 interface Props {
   beforeImage: string;
   afterImage: string;
+  beforeLabel?: string;
+  afterLabel?: string;
 }
 
-export default function MultiLayerSlider({ beforeImage, afterImage }: Props) {
+export default function MultiLayerSlider({ 
+  beforeImage, 
+  afterImage, 
+  beforeLabel = "Before", 
+  afterLabel = "After" 
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState(50); // Start at 50%
 
-  const startDrag = () => setIsDragging(true);
-  const stopDrag = () => setIsDragging(false);
-
-  const handleDrag = (e: MouseEvent | TouchEvent) => {
-    if (!isDragging || !containerRef.current || !overlayRef.current || !handleRef.current) return;
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
-    let x = 0;
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    setPosition(percentage);
+    
+    // Update overlay width to reveal before image progressively
+    if (overlayRef.current) {
+      overlayRef.current.style.width = `${percentage}%`;
+    }
+    // Update handle position
+    if (handleRef.current) {
+      handleRef.current.style.left = `${percentage}%`;
+    }
+  }, []);
 
-    if (e instanceof MouseEvent) x = e.clientX - rect.left;
-    if (e instanceof TouchEvent) x = e.touches[0].clientX - rect.left;
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    updatePosition(e.clientX);
+  }, [updatePosition]);
 
-    x = Math.max(0, Math.min(x, rect.width)); // clamp
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    updatePosition(e.touches[0].clientX);
+  }, [updatePosition]);
 
-    overlayRef.current.style.width = `${x}px`;
-    handleRef.current.style.left = `${x}px`;
-  };
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    if (!isDragging) {
+      updatePosition(e.clientX);
+    }
+  }, [isDragging, updatePosition]);
 
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (isDragging) {
+      updatePosition(e.clientX);
+    }
+  }, [isDragging, updatePosition]);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (isDragging) {
+      e.preventDefault();
+      updatePosition(e.touches[0].clientX);
+    }
+  }, [isDragging, updatePosition]);
+
+  const stopDragging = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Handle mouse/touch events
   useEffect(() => {
-    window.addEventListener("mousemove", handleDrag);
-    window.addEventListener("mouseup", stopDrag);
-    window.addEventListener("touchmove", handleDrag);
-    window.addEventListener("touchend", stopDrag);
+    if (isDragging) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", stopDragging);
+      document.addEventListener("touchmove", handleTouchMove, { passive: false });
+      document.addEventListener("touchend", stopDragging);
+    }
 
     return () => {
-      window.removeEventListener("mousemove", handleDrag);
-      window.removeEventListener("mouseup", stopDrag);
-      window.removeEventListener("touchmove", handleDrag);
-      window.removeEventListener("touchend", stopDrag);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", stopDragging);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", stopDragging);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove, handleTouchMove, stopDragging]);
+
+  // Initialize position on mount
+  useEffect(() => {
+    if (overlayRef.current && handleRef.current) {
+      overlayRef.current.style.width = `${position}%`;
+      handleRef.current.style.left = `${position}%`;
+    }
+  }, []);
 
   return (
-    <div
-      className={styles.container}
-      ref={containerRef}
-      onMouseDown={startDrag}
-      onTouchStart={startDrag}
-    >
-      <img src={afterImage} alt="after" className={styles.after} />
-      <div className={styles.overlay} ref={overlayRef}>
-        <img src={beforeImage} alt="before" />
+    <div className={styles.wrapper}>
+      <div 
+        className={styles.container} 
+        ref={containerRef}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        onClick={handleClick}
+      >
+        {/* After Image (Background) */}
+        <div className={styles.imageContainer}>
+          <img src={afterImage} alt="After" className={styles.image} />
+          <div className={styles.label} data-position="right">
+            {afterLabel}
+          </div>
+        </div>
+
+        {/* Before Image (Overlay) */}
+        <div className={styles.overlay} ref={overlayRef}>
+          <img src={beforeImage} alt="Before" className={styles.image} />
+          <div className={styles.label} data-position="left">
+            {beforeLabel}
+          </div>
+        </div>
+
+        {/* Slider Handle */}
+        <div className={styles.handle} ref={handleRef}>
+          <div className={styles.handleButton}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M8 6L16 12L8 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M16 6L8 12L16 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Slider Track */}
+        <div className={styles.track}></div>
       </div>
-      <div className={styles.handle} ref={handleRef}></div>
     </div>
   );
 }

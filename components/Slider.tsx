@@ -29,11 +29,6 @@ export default function Slider({ slides }: Props) {
     if (timerRef.current) clearTimeout(timerRef.current);
   }, []);
 
-  const startTimer = useCallback(() => {
-    clearTimer();
-    timerRef.current = setTimeout(() => changeSlide("next"), AUTO_PLAY_DURATION);
-  }, []);
-
   const changeSlide = useCallback((directionOrIndex: "next" | "prev" | number) => {
     if (isAnimating || slides.length <= 1) return;
     
@@ -62,15 +57,22 @@ export default function Slider({ slides }: Props) {
     // TEMPS 3 : À la fin de l'animation globale
     setTimeout(() => {
       setIsAnimating(false);
-      startTimer();
+      // Restart timer after animation completes
+      clearTimer();
+      timerRef.current = setTimeout(() => changeSlide("next"), AUTO_PLAY_DURATION);
     }, ANIMATION_DURATION);
 
-  }, [isAnimating, activeSlide, slides.length, startTimer]);
+  }, [isAnimating, activeSlide, slides.length, clearTimer]);
+
+  const startTimer = useCallback(() => {
+    clearTimer();
+    timerRef.current = setTimeout(() => changeSlide("next"), AUTO_PLAY_DURATION);
+  }, [changeSlide]);
 
   useEffect(() => {
     startTimer();
     return () => clearTimer();
-  }, [startTimer]);
+  }, []);
 
   const bandWidth = 100 / BANDS_COUNT;
 

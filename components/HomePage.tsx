@@ -17,20 +17,31 @@ export default function HomePage() {
 
   const slides = [
     { 
-      image: "/images/card-1.jpeg",
-      title: "Business Alu : L'Art de l'Aluminium", 
-      description: "Nous transformons vos espaces avec des solutions élégantes, modernes et durables." 
+      image: "/images/image00002.jpeg",
+      title: "Business Alu : L’Excellence en Aluminium", 
+      description: "Nous sublimons vos espaces avec des solutions en aluminium élégantes, modernes et durables." 
     },
     { 
-      image: "/images/card-4.jpeg",// Mettez une photo d'un projet sur mesure
-      title: "Conception sur Mesure", 
-      description: "Chaque projet est unique. Nous créons des solutions parfaitement adaptées à vos besoins et à votre style." 
+      image: "/images/image00018.jpeg", // Projet sur mesure
+      title: "Conceptions Uniques & Personnalisées", 
+      description: "Chaque réalisation est pensée pour refléter vos besoins, votre style et vos exigences spécifiques." 
     },
     { 
-      image: "/images/card-3.jpeg", // Mettez une photo qui montre votre expertise technique
-      title: "Qualité & Savoir-Faire", 
-      description: "Notre expertise garantit une installation précise et des produits de haute qualité pour une satisfaction durable." 
-    }
+      image: "/images/image00019.jpeg", // Expertise technique
+      title: "Un Savoir-Faire Reconnu", 
+      description: "Notre expertise technique assure une précision irréprochable et des finitions de qualité supérieure." 
+    },
+    { 
+      image: "/images/image00024.jpeg", // Innovation
+      title: "Innovation & Modernité", 
+      description: "Nous intégrons les dernières tendances et technologies pour créer des espaces fonctionnels et esthétiques." 
+    },
+    { 
+      image: "/images/image00025.jpeg", // Relation client
+      title: "Proximité & Confiance", 
+      description: "Nous plaçons la relation client au cœur de nos projets, avec un accompagnement sur mesure à chaque étape." 
+    }    
+    
   ];
 
   useEffect(() => {
@@ -138,12 +149,14 @@ export default function HomePage() {
             Obtenir un Devis
           </Link>
         </div>
-        <div >
+       
           <MultiLayerSlider
-            beforeImage="/images/before.jpg"
-            afterImage="/images/after.jpg"
+            beforeImage="/images/after.png"
+            afterImage="/images/before.png"
+            beforeLabel="Après"
+            afterLabel="Avant"
           />
-        </div>
+        
       </section>
       <ClientsCarousel />
 

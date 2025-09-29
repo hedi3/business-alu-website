@@ -70,17 +70,70 @@
    (opacity: 1, transform: translateX(0)) grâce à la transition définie plus haut,
    ce qui crée l'effet d'entrée. */
 
-/* --- Vos styles de contenu et d'UI (inchangés) --- */
+/* --- Professional Typography Styles --- */
 .slideContent {
   h2 {
-    font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; color: #1e51a2; text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
-    @media (max-width: 768px) { font-size: 2.5rem; margin-bottom: 1rem; }
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
   }
+  
   p {
-    font-size: 1.8rem; line-height: 1.6; max-width: 600px; background: rgba(30, 81, 162, 0.8); padding: 1rem 1.5rem; border-radius: 8px; backdrop-filter: blur(4px);
-    @media (max-width: 768px) { font-size: 1.2rem; padding: 0.75rem 1rem; }
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.25rem 1.75rem;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    
+    @media (max-width: 1024px) {
+      font-size: 1.3rem;
+      padding: 1.1rem 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+      line-height: 1.6;
+      max-width: 100%;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      padding: 0.875rem 1rem;
+    }
   }
-  @media (max-width: 768px) { bottom: 10%; width: 80%; left: 5%; }
+  
+  @media (max-width: 768px) {
+    bottom: 10%;
+    width: 85%;
+    left: 7.5%;
+  }
 }
 .slideCounter { position: absolute; top: 20px; right: 20px; color: white; font-size: 1.2rem; font-weight: 500; background: rgba(30, 81, 162, 0.8); padding: 8px 16px; border-radius: 20px; z-index: 10; }
 .navButton { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(30, 81, 162, 0.8); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; transition: all 0.3s ease; z-index: 10;
