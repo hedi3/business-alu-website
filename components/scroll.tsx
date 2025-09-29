@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import styles from "./scroll.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -69,10 +70,22 @@ export default function Scroll() {
     return cardData.map((card, i) => (
       <div className={styles.row} key={i}>
         <div className={`${styles.card} ${styles.cardLeft}`}>
-          <img src={`/images/card-${card.img}.jpeg`} alt={`Card ${card.img}`} />
+          <Image 
+            src={`/images/card-${card.img}.jpeg`} 
+            alt={`Card ${card.img}`} 
+            width={300}
+            height={400}
+            style={{ objectFit: 'cover' }}
+          />
         </div>
         <div className={`${styles.card} ${styles.cardRight}`}>
-          <img src={`/images/card-${card.img + 1}.jpeg`} alt={`Card ${card.img + 1}`} />
+          <Image 
+            src={`/images/card-${card.img + 1}.jpeg`} 
+            alt={`Card ${card.img + 1}`} 
+            width={300}
+            height={400}
+            style={{ objectFit: 'cover' }}
+          />
         </div>
       </div>
     ));
@@ -83,7 +96,12 @@ export default function Scroll() {
       <div ref={componentRef}>
         <section className={styles.hero}>
           <div className={styles.heroImage}>
-            <img src="/images/hero-image.jpeg" alt="Hero" />
+            <Image 
+              src="/images/hero-image.jpeg" 
+              alt="Hero" 
+              fill
+              style={{ objectFit: 'cover' }}
+            />
           </div>
         </section>
         <div className={styles.main}>

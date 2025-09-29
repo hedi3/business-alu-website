@@ -1,8 +1,8 @@
 // Ce composant est marqué pour être rendu côté client.
 "use client"; 
 
-
 import Link from 'next/link';
+import Image from 'next/image';
 // Importation des icônes Instagram, TikTok, LinkedIn et Email.
 import { FaInstagram, FaTiktok, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
@@ -15,10 +15,12 @@ export default function Footer() {
           {/* Logo et Copyright */}
           <div className="mb-8 md:mb-0">
             <Link href="/" className="flex justify-center md:justify-start items-center space-x-2">
-              <img 
-                src="images/logo.png" 
+              <Image 
+                src="/images/logo.png" 
                 alt="Alu Alimi Logo" 
-                className="w-10 h-10 transition-transform hover:scale-105" 
+                width={40}
+                height={40}
+                className="transition-transform hover:scale-105" 
               />
               <span className="text-xl font-bold text-white tracking-wide">
                 Alu Alimi

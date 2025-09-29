@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -57,8 +58,13 @@ export default function SplitSlideshow() {
       <div style={{ width: "50%" }}>
         <Slider ref={leftRef} {...settingsLeft}>
           {slides.map((s, i) => (
-            <div key={i}>
-              <img src={s.img} alt={s.text} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div key={i} style={{ position: "relative", height: "100vh" }}>
+              <Image 
+                src={s.img} 
+                alt={s.text} 
+                fill
+                style={{ objectFit: "cover" }} 
+              />
             </div>
           ))}
         </Slider>
@@ -68,8 +74,13 @@ export default function SplitSlideshow() {
       <div style={{ width: "50%" }}>
         <Slider ref={rightRef} {...settingsRight}>
           {[...slides].reverse().map((s, i) => (
-            <div key={i}>
-              <img src={s.img} alt={s.text} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div key={i} style={{ position: "relative", height: "100vh" }}>
+              <Image 
+                src={s.img} 
+                alt={s.text} 
+                fill
+                style={{ objectFit: "cover" }} 
+              />
             </div>
           ))}
         </Slider>

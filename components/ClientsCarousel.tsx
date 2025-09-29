@@ -6,11 +6,11 @@ import styles from './ClientsCarousel.module.scss';
 // Pour un meilleur rendu, utilisez des logos PNG avec fond transparent.
 const clientLogos = [
   { src: '/images/logo1.png', alt: 'Client 1' },
-  { src: '/images/logo_b.png', alt: 'Client 2' },
-  { src: '/images/logo_a.png', alt: 'Client 3' },
-  { src: '/images/logo_a3.png', alt: 'Client 4' },
-  { src: '/images/logo_a10.png', alt: 'Client 5' },
-  { src: '/images/logo.png', alt: 'Client 6' },
+  { src: '/images/logo_square.png', alt: 'Client 2' },
+  { src: '/images/logo3.png', alt: 'Client 3' },
+  { src: '/images/images__3_-removebg-preview.png', alt: 'Client 4' },
+  { src: '/images/Logo-TotalEnergies-2021-1-removebg-preview.png', alt: 'Client 5' },
+  { src: '/images/ste_cap_bon_de_travaux_socatra_logo-removebg-preview.png', alt: 'Client 6' },
   // Ajoutez autant de logos que vous le souhaitez...
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import styles from "./MultiLayerSlider.module.scss";
 
 interface Props {
@@ -109,21 +110,33 @@ export default function MultiLayerSlider({
         onTouchStart={handleTouchStart}
         onClick={handleClick}
       >
-        {/* After Image (Background) */}
-        <div className={styles.imageContainer}>
-          <img src={afterImage} alt="After" className={styles.image} />
-          <div className={styles.label} data-position="right">
-            {afterLabel}
-          </div>
-        </div>
+              {/* After Image (Background) */}
+              <div className={styles.imageContainer}>
+                <Image 
+                  src={afterImage} 
+                  alt="After" 
+                  fill
+                  className={styles.image}
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className={styles.label} data-position="right">
+                  {afterLabel}
+                </div>
+              </div>
 
-        {/* Before Image (Overlay) */}
-        <div className={styles.overlay} ref={overlayRef}>
-          <img src={beforeImage} alt="Before" className={styles.image} />
-          <div className={styles.label} data-position="left">
-            {beforeLabel}
-          </div>
-        </div>
+              {/* Before Image (Overlay) */}
+              <div className={styles.overlay} ref={overlayRef}>
+                <Image 
+                  src={beforeImage} 
+                  alt="Before" 
+                  fill
+                  className={styles.image}
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className={styles.label} data-position="left">
+                  {beforeLabel}
+                </div>
+              </div>
 
         {/* Slider Handle */}
         <div className={styles.handle} ref={handleRef}>

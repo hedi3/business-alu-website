@@ -5,6 +5,7 @@ import type { Project } from "@/types/project"
 import Image from "next/image"
 import { useState } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 interface ProjectModalProps {
   project: Project
@@ -138,7 +139,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <div className="pt-6 border-t border-border">
                   <p className="text-sm text-muted-foreground mb-4">Intéressé par un projet similaire ?</p>
                   <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium">
-                    Demander un devis
+                  <Link href="/contact" >
+          Demander un Devis
+        </Link>
                   </button>
                 </div>
               </div>

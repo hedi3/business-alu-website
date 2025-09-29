@@ -62,17 +62,17 @@ export default function Slider({ slides }: Props) {
       timerRef.current = setTimeout(() => changeSlide("next"), AUTO_PLAY_DURATION);
     }, ANIMATION_DURATION);
 
-  }, [isAnimating, activeSlide, slides.length, clearTimer]);
+  }, [isAnimating, activeSlide, slides.length, clearTimer, setAnimationClass, setIsAnimating]);
 
   const startTimer = useCallback(() => {
     clearTimer();
     timerRef.current = setTimeout(() => changeSlide("next"), AUTO_PLAY_DURATION);
-  }, [changeSlide]);
+  }, [changeSlide, clearTimer]);
 
   useEffect(() => {
     startTimer();
     return () => clearTimer();
-  }, []);
+  }, [startTimer, clearTimer]);
 
   const bandWidth = 100 / BANDS_COUNT;
 
