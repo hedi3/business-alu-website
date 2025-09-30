@@ -2,9 +2,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import LoadingScreen from './LoadingScreen';
 
-const LoadingContext = createContext({
+const LoadingContext = createContext<{
+  isLoading: boolean;
+  setLoading: (loading: boolean) => void;
+}>({
   isLoading: true,
-  setLoading: (loading: boolean) => {}
+  setLoading: () => {}
 });
 
 export const useLoading = () => useContext(LoadingContext);

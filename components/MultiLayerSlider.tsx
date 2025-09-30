@@ -99,7 +99,7 @@ export default function MultiLayerSlider({
       overlayRef.current.style.width = `${position}%`;
       handleRef.current.style.left = `${position}%`;
     }
-  }, []);
+  }, [position]);
 
   return (
     <div className={styles.wrapper}>

@@ -20,7 +20,7 @@ const projects: Project[] = [
       "/images/image00019.jpeg",
     ],
     description:
-      "Réalisation d'une façade moderne en aluminium pour une villa contemporaine. Système de bardage ventilé avec finition anodisée naturelle.",
+      "Réalisation d&apos;une façade moderne en aluminium pour une villa contemporaine. Système de bardage ventilé avec finition anodisée naturelle.",
     details: {
       client: "Architecte Privé",
       surface: "180 m²",
@@ -58,7 +58,7 @@ const projects: Project[] = [
       "/images/aluminum-facade-detail.jpg",
     ],
     description:
-      "Conception et pose d'un mur rideau en aluminium pour un immeuble de bureaux. Structure modulaire avec vitrage haute performance.",
+      "Conception et pose d&apos;un mur rideau en aluminium pour un immeuble de bureaux. Structure modulaire avec vitrage haute performance.",
     details: {
       client: "Entreprise de Construction",
       surface: "1200 m²",
@@ -96,7 +96,7 @@ const projects: Project[] = [
       "/images/modern-commercial-building.png",
     ],
     description:
-      "Pergola bioclimatique en aluminium pour la terrasse d'un hôtel boutique. Lames orientables motorisées avec éclairage LED intégré.",
+      "Pergola bioclimatique en aluminium pour la terrasse d&apos;un hôtel boutique. Lames orientables motorisées avec éclairage LED intégré.",
     details: {
       client: "Hôtelier",
       surface: "80 m²",
@@ -152,7 +152,7 @@ export default function RealisationsPage() {
             Nos Réalisations
           </h1>
           <p className="text-2xl font-light text-gray-600 max-w-3xl mx-auto text-pretty leading-relaxed">
-            Découvrez nos projets d'excellence en solutions architecturales aluminium. Chaque réalisation témoigne de
+            Découvrez nos projets d&apos;excellence en solutions architecturales aluminium. Chaque réalisation témoigne de
             notre savoir-faire et de notre engagement qualité.
           </p>
         </div>

@@ -70,7 +70,7 @@ export default function ServicesPage() {
         <div className={styles.serviceCard}>
           <div className={styles.cardIcon}><DraftingCompass size={32} /></div>
           <h3>Conception sur Mesure</h3>
-          <p>Chaque projet est unique. Nous travaillons avec vous pour concevoir des solutions en aluminium qui s'intègrent parfaitement à votre architecture et à vos besoins spécifiques.</p>
+          <p>Chaque projet est unique. Nous travaillons avec vous pour concevoir des solutions en aluminium qui s&apos;intègrent parfaitement à votre architecture et à vos besoins spécifiques.</p>
           <ul>
             <li>Fenêtres et portes</li>
             <li>Vérandas et pergolas</li>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
         <div className={styles.serviceCard}>
           <div className={styles.cardIcon}><ShieldCheck size={32} /></div>
           <h3>Qualité & Installation</h3>
-          <p>Notre engagement ne s'arrête pas à la fabrication. Nos équipes de poseurs qualifiés assurent une installation précise, garantissant la longévité et la performance de nos produits.</p>
+          <p>Notre engagement ne s&apos;arrête pas à la fabrication. Nos équipes de poseurs qualifiés assurent une installation précise, garantissant la longévité et la performance de nos produits.</p>
            <ul>
             <li>Installation par des experts</li>
             <li>Contrôle qualité rigoureux</li>
@@ -106,7 +106,7 @@ export default function ServicesPage() {
       {/* Section Appel à l'Action (CTA) */}
       <section className={styles.ctaSection}>
         <h2>Prêt à donner vie à votre projet ?</h2>
-        <p>Discutons de vos idées. Contactez-nous dès aujourd'hui pour obtenir un devis gratuit et personnalisé.</p>
+        <p>Discutons de vos idées. Contactez-nous dès aujourd&apos;hui pour obtenir un devis gratuit et personnalisé.</p>
         <Link href="/contact" className={styles.ctaButton}>
           Demander un Devis
         </Link>

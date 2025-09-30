@@ -13,7 +13,6 @@ import {
   CheckCircle,
   Building2,
   Wrench,
-  Star,
   TrendingUp
 } from 'lucide-react';
 
@@ -136,12 +135,13 @@ export default function AboutPage() {
         },
       });
 
-      // Animate stat numbers
-      gsap.utils.toArray(`.${styles.statNumber}`).forEach((stat: any) => {
-        const endValue = stat.textContent;
-        const numericValue = parseInt(endValue.replace(/\D/g, ''));
+            // Animate stat numbers
+            gsap.utils.toArray(`.${styles.statNumber}`).forEach((stat) => {
+        const element = stat as HTMLElement;
+        const endValue = element.textContent;
+        const numericValue = parseInt(endValue?.replace(/\D/g, '') || '0');
         
-        gsap.fromTo(stat, 
+        gsap.fromTo(element, 
           { textContent: 0 },
           {
             textContent: numericValue,
@@ -149,7 +149,7 @@ export default function AboutPage() {
             ease: 'power2.out',
             snap: { textContent: 1 },
             scrollTrigger: {
-              trigger: stat,
+              trigger: element,
               start: 'top 90%',
             },
           }
@@ -218,13 +218,14 @@ export default function AboutPage() {
         },
       });
 
-      // Button hover animations
-      gsap.utils.toArray(`.${styles.primaryButton}, .${styles.secondaryButton}`).forEach((button: any) => {
-        button.addEventListener('mouseenter', () => {
-          gsap.to(button, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+            // Button hover animations
+            gsap.utils.toArray(`.${styles.primaryButton}, .${styles.secondaryButton}`).forEach((button) => {
+        const element = button as HTMLElement;
+        element.addEventListener('mouseenter', () => {
+          gsap.to(element, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
         });
-        button.addEventListener('mouseleave', () => {
-          gsap.to(button, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        element.addEventListener('mouseleave', () => {
+          gsap.to(element, { scale: 1, duration: 0.3, ease: 'power2.out' });
         });
       });
 
@@ -251,7 +252,7 @@ export default function AboutPage() {
         <div className={styles.heroContent}>
           <p className={styles.heroSubtitle}>À PROPOS DE NOUS</p>
           <h1 className={styles.heroTitle}>
-            L'excellence en menuiserie aluminium depuis des générations
+            L&apos;excellence en menuiserie aluminium depuis des générations
           </h1>
           <p className={styles.heroDescription}>
             Votre partenaire de confiance pour des solutions aluminium sur mesure, 
@@ -266,15 +267,15 @@ export default function AboutPage() {
           <div className={styles.storyText}>
             <h2 className={styles.sectionTitle}>Notre Histoire</h2>
             <p className={styles.storyIntro}>
-              Depuis notre création, Business Alu s'est imposé comme un acteur incontournable 
+              Depuis notre création, Business Alu s&apos;est imposé comme un acteur incontournable 
               dans le domaine de la menuiserie aluminium en Tunisie. Notre passion pour 
-              l'excellence et notre engagement envers la qualité nous ont permis de réaliser 
+              l&apos;excellence et notre engagement envers la qualité nous ont permis de réaliser 
               des milliers de projets, de la simple fenêtre aux façades les plus complexes.
             </p>
             <p className={styles.storyContent}>
               Fondée sur des valeurs solides et une expertise technique reconnue, notre entreprise 
               a su évoluer avec son temps en intégrant les dernières innovations tout en préservant 
-              l'artisanat traditionnel. Chaque projet est une nouvelle opportunité de démontrer 
+              l&apos;artisanat traditionnel. Chaque projet est une nouvelle opportunité de démontrer 
               notre savoir-faire et notre capacité à répondre aux défis les plus exigeants.
             </p>
           </div>
@@ -307,7 +308,7 @@ export default function AboutPage() {
                 <Users size={32} />
               </div>
               <div className={styles.statNumber}>15+</div>
-              <div className={styles.statLabel}>Années d'Expérience</div>
+              <div className={styles.statLabel}>Années d&apos;Expérience</div>
             </div>
             <div className={styles.statCard}>
               <div className={styles.statIcon}>
@@ -326,7 +327,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+      
       {/* Values Section */}
       <section className={styles.valuesSection}>
         <div className={styles.valuesContainer}>
@@ -334,7 +335,7 @@ export default function AboutPage() {
           <p className={styles.sectionSubtitle}>
             Les principes qui guident notre travail et notre relation avec nos clients
           </p>
-          <div className={styles.valuesGrid}>
+        <div className={styles.valuesGrid}>
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>
                 <Award size={40} />
@@ -385,7 +386,7 @@ export default function AboutPage() {
                 des solutions modernes et performantes.
               </p>
             </div>
-            <div className={styles.valueCard}>
+          <div className={styles.valueCard}>
               <div className={styles.valueIcon}>
                 <Clock size={40} />
               </div>
@@ -420,7 +421,7 @@ export default function AboutPage() {
               <h3>Équipe Technique</h3>
               <p>
                 Nos techniciens qualifiés possèdent une expertise approfondie 
-                dans l'installation et la maintenance de tous types de menuiseries aluminium.
+                dans l&apos;installation et la maintenance de tous types de menuiseries aluminium.
               </p>
             </div>
             <div className={styles.teamCard}>
@@ -449,7 +450,7 @@ export default function AboutPage() {
                   style={{ objectFit: 'cover' }}
                 />
               </div>
-              <h3>Bureau d'Études</h3>
+              <h3>Bureau d&apos;Études</h3>
               <p>
                 Nos ingénieurs et dessinateurs conçoivent des solutions sur mesure, 
                 en respectant les normes techniques et esthétiques les plus exigeantes.
@@ -506,8 +507,8 @@ export default function AboutPage() {
         <div className={styles.ctaContainer}>
           <h2>Prêt à concrétiser votre projet ?</h2>
           <p>
-            Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé. 
-            Notre équipe d'experts est à votre disposition pour vous accompagner.
+            Contactez-nous dès aujourd&apos;hui pour un devis gratuit et personnalisé. 
+            Notre équipe d&apos;experts est à votre disposition pour vous accompagner.
           </p>
           <div className={styles.ctaButtons}>
             <button className={styles.primaryButton}>
