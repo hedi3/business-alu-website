@@ -15,6 +15,7 @@ import {
   Wrench,
   TrendingUp
 } from 'lucide-react';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -511,12 +512,14 @@ export default function AboutPage() {
             Notre équipe d&apos;experts est à votre disposition pour vous accompagner.
           </p>
           <div className={styles.ctaButtons}>
-            <button className={styles.primaryButton}>
-              Demander un Devis
-            </button>
-            <button className={styles.secondaryButton}>
-              Nous Contacter
-            </button>
+            
+          <Link href="/contact" className={styles.primaryButton}>
+            Demander un Devis
+          </Link>
+          <Link href="/contact" className={styles.secondaryButton}>
+            Nous Contacter
+          </Link>
+        
           </div>
         </div>
       </section>

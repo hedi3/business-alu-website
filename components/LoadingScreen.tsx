@@ -14,27 +14,29 @@ export default function LoadingScreen({ loading }: Props) {
         <Image 
           src="/images/logo_b.png" // Assurez-vous que le chemin est correct
           alt="Logo part B" 
-          width={150} // Taille augmentée
-          height={150} // Taille augmentée
+          width={180}
+          height={180} 
           className={styles.logoPartB}
           priority
         />
         <Image 
           src="/images/logo_a10.png" // Assurez-vous que le chemin est correct
           alt="Logo part A" 
-          width={130} // Taille augmentée
-          height={130} // Taille augmentée
+          width={150} // Taille augmentée
+          height={150} // Taille augmentée
           className={styles.logoPartA}
           priority
         />
         {/* Le nom et la tagline */}
         <div className={styles.textWrapper}>
-          <span className={styles.companyName}>
-            business alu
-          </span>
-          <span className={styles.tagline}>
-            MENUISERIE ALUMINIUM
-          </span>
+        <Image
+            src="/images/Copie_logo.png"
+            alt="Business Alu"
+            width={160}
+            height={160}
+            priority
+            style={{ objectFit: 'contain' }}
+          />
         </div>
       </div>
     </div>
