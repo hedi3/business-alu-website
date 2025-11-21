@@ -1,142 +1,149 @@
-.servicesContainer {
-    background-color: #f4f7f6;
-    color: #111;
-    font-family: 'Poppins', sans-serif;
+.heroSection {
+  background: linear-gradient(to right, #1e51a2, #2d6cc4);
+  position: relative;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.heroBadge {
+  /* styling for the badge */
+}
+
+.heroTitle {
+  /* styling for the title */
+}
+
+.highlight {
+  background-color: #FFD700; /* Highlight color for emphasis */
+}
+
+.heroDescription {
+  /* styling for the description */
+}
+
+.heroActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.primaryButton {
+  /* Primary button styling */
+}
+
+.secondaryButton {
+  /* Secondary button styling */
+}
+
+.heroDecoration {
+  .decorCircle {
+    /* decoration styles */
   }
-  
-  /* --- Section Hero --- */
-  .heroSection {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 100px 5%;
-  }
-  
-  .heroContent {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .heroSubtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 1rem;
-  }
-  
-  .heroTitle {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #1e51a2;
-  }
-  
-  /* --- Grille des Services --- */
+}
+
+.sectionHeader {
+  /* styles for header */
+}
+
+.sectionBadge {
+  /* styles for badge */
+}
+
+.sectionTitle {
+  /* styles for title */
+}
+
+.sectionDescription {
+  /* styles for description */
+}
+
+.mainServicesSection {
   .servicesGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 100px 5%;
-  
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
-    }
+    /* grid styles */
   }
-  
-  .serviceCard {
-    background-color: #ffffff;
-    padding: 40px 35px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    }
-  
-    h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-      color: #111;
-    }
-  
-    p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #555;
-      margin-bottom: 25px;
-    }
-  
-    ul {
-      list-style: none;
-      padding-left: 0;
-      
-      li {
-        position: relative;
-        padding-left: 25px;
-        margin-bottom: 10px;
-        color: #333;
-  
-        &::before {
-          content: '✓';
-          position: absolute;
-          left: 0;
-          color: #1e51a2;
-          font-weight: bold;
-        }
-      }
-    }
+}
+
+.serviceCard {
+  .cardIconWrapper {
+    /* styles for icon wrapper */
   }
-  
   .cardIcon {
-    display: inline-flex;
-    padding: 15px;
-    background-color: #e8f0fe;
-    color: #1e51a2;
-    border-radius: 50%;
-    margin-bottom: 25px;
+    /* styles for icon */
   }
-  
-  /* --- Section Appel à l'Action (CTA) --- */
-  .ctaSection {
-    background-color: #1e51a2;
-    color: #fff;
-    text-align: center;
-    padding: 80px 5%;
-  
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-  
-    p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      opacity: 0.9;
+  .cardTitle {
+    /* styles for title */
+  }
+  .cardDescription {
+    /* styles for description */
+  }
+  .cardList {
+    /* list styles */
+  }
+  .cardFooter {
+    /* footer styles */
+  }
+  .cardLink {
+    /* link styles */
+  }
+}
+
+.productsSection {
+  .productsGrid {
+    /* grid styles */
+  }
+
+  .productCard {
+    .productIcon {
+      /* icon styles */
     }
   }
-  
+}
+
+.featuresSection {
+  .featuresGrid {
+    /* grid styles */
+  }
+
+  .featureItem {
+    /* styles for feature item */
+  }
+  .featureNumber {
+    /* styles for feature number */
+  }
+}
+
+.ctaSection {
+  .ctaContent {
+    /* styles for CTA content */
+  }
+  .ctaTitle {
+    /* styles for CTA title */
+  }
+  .ctaDescription {
+    /* styles for CTA description */
+  }
+  .ctaButtons {
+    display: flex;
+    justify-content: space-between;
+  }
   .ctaButton {
-    display: inline-block;
-    background-color: #fff;
-    color: #1e51a2;
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+    /* styles for CTA button */
   }
- 
+  .ctaButtonSecondary {
+    /* styles for secondary CTA button */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile styles for 768px and under */
+}
+
+@media (max-width: 480px) {
+  /* Mobile styles for 480px and under */
+}
