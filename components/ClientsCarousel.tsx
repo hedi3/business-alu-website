@@ -21,7 +21,7 @@ export default function ClientsCarousel() {
   return (
     <section className={styles.clientsSection}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Nos partenaires de confiance</h2>
+        <h2 className={styles.title}>Ils nous font confiance</h2>
       </div>
       <div className={styles.scroller}>
         <div className={styles.scrollerInner}>
